@@ -6,7 +6,7 @@ use Administration\Dtos\RoleDto;
 use Administration\Events\RoleCreatedEvent;
 use Administration\Events\RoleUpdatedEvent;
 use Administration\Events\RoleDeletedEvent;
-use Administration\Repositories\RoleRepositoryInterface;
+use Administration\Repositories\Interfaces\RoleRepositoryInterface;
 use Administration\Services\Interfaces\RoleServiceInterface;
 use Spatie\Permission\Models\Role;
 use Illuminate\Database\Eloquent\Collection;

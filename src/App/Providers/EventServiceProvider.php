@@ -7,10 +7,10 @@ class EventServiceProvider extends \Illuminate\Foundation\Support\Providers\Even
     protected $listen = [
         // Auth
         \Auth\Events\LoginEvent::class => [
-            \Auth\Listeners\LoginListener::class
+            \Auth\Events\Listeners\LoginListener::class
         ],
         \Auth\Events\LogoutEvent::class => [
-            \Auth\Listeners\LogoutListener::class
+            \Auth\Events\Listeners\LogoutListener::class
         ],
 
         // Administration

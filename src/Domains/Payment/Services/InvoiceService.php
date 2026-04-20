@@ -6,7 +6,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Payment\Dtos\InvoiceUpdateDto;
 use Payment\Events\InvoiceUpdatedEvent;
 use Payment\Models\Invoice;
-use Payment\Repositories\InvoiceRepositoryInterface;
+use Payment\Repositories\Interfaces\InvoiceRepositoryInterface;
 use Payment\Services\Interfaces\InvoiceServiceInterface;
 use Shared\Exceptions\ApiJsonException;
 use Illuminate\Support\Facades\Storage;

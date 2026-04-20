@@ -1,6 +1,6 @@
 <?php
 
-namespace Payment\Repositories;
+namespace Payment\Repositories\Interfaces;
 
 use Payment\Dtos\ServiceCreateDto;
 use Payment\Models\Service;

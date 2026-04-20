@@ -11,7 +11,7 @@ use Administration\Events\UserCreatedEvent;
 use Administration\Events\UserDeletedEvent;
 use Administration\Events\UserUpdatedEvent;
 use Administration\Models\User;
-use Administration\Repositories\UserRepositoryInterface;
+use Administration\Repositories\Interfaces\UserRepositoryInterface;
 use Administration\Services\Interfaces\UserActivityServiceInterface;
 use Administration\Services\Interfaces\UserManagementServiceInterface;
 use Shared\Exceptions\ApiJsonException;

@@ -5,7 +5,7 @@ namespace Payment\Services;
 use Payment\Dtos\BillingUpdateDto;
 use Payment\Events\BillingUpdatedEvent;
 use Payment\Models\Billing;
-use Payment\Repositories\BillingRepositoryInterface;
+use Payment\Repositories\Interfaces\BillingRepositoryInterface;
 use Payment\Services\Interfaces\BillingServiceInterface;
 
 readonly class BillingService implements BillingServiceInterface

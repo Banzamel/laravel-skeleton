@@ -3,6 +3,7 @@
 namespace FileManager\Repositories;
 
 use FileManager\Enums\EntityTypeEnum;
+use FileManager\Repositories\Interfaces\FileManagerRepositoryInterface;
 use FileManager\Models\FileManagerPath;
 use FileManager\Models\FileManagerMeta;
 use Illuminate\Database\Eloquent\Collection;

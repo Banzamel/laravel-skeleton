@@ -3,6 +3,7 @@
 namespace Payment\Repositories;
 
 use Payment\Models\Proforma;
+use Payment\Repositories\Interfaces\ProformaRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProformaRepository implements ProformaRepositoryInterface

@@ -2,6 +2,7 @@
 
 namespace Payment\Repositories;
 
+use Payment\Repositories\Interfaces\ServiceRepositoryInterface;
 use Payment\Dtos\ServiceCreateDto;
 use Payment\Models\Service;
 use Illuminate\Database\Eloquent\Collection;

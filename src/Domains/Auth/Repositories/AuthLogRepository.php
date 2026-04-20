@@ -3,6 +3,7 @@
 namespace Auth\Repositories;
 
 use Auth\Models\AuthLog;
+use Auth\Repositories\Interfaces\AuthLogRepositoryInterface;
 use Illuminate\Database\Eloquent\Builder;
 
 class AuthLogRepository implements AuthLogRepositoryInterface

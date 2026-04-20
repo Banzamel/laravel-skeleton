@@ -9,7 +9,7 @@ use Payment\Events\ServiceCreatedEvent;
 use Payment\Events\ServiceDeletedEvent;
 use Payment\Events\ServiceUpdatedEvent;
 use Payment\Models\Service;
-use Payment\Repositories\ServiceRepositoryInterface;
+use Payment\Repositories\Interfaces\ServiceRepositoryInterface;
 use Payment\Services\Interfaces\ServiceManagementServiceInterface;
 
 readonly class ServiceManagementService implements ServiceManagementServiceInterface

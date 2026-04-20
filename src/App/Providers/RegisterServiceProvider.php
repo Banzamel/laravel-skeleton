@@ -21,13 +21,13 @@ class RegisterServiceProvider extends ServiceProvider
         \FileManager\Services\Interfaces\FileManagerServiceInterface::class => \FileManager\Services\FileManagerService::class,
 
         // Repositories
-        \Auth\Repositories\AuthLogRepositoryInterface::class => \Auth\Repositories\AuthLogRepository::class,
-        \Administration\Repositories\UserRepositoryInterface::class => \Administration\Repositories\UserRepository::class,
-        \Administration\Repositories\RoleRepositoryInterface::class => \Administration\Repositories\RoleRepository::class,
-        \Payment\Repositories\ServiceRepositoryInterface::class => \Payment\Repositories\ServiceRepository::class,
-        \Payment\Repositories\InvoiceRepositoryInterface::class => \Payment\Repositories\InvoiceRepository::class,
-        \Payment\Repositories\ProformaRepositoryInterface::class => \Payment\Repositories\ProformaRepository::class,
-        \Payment\Repositories\BillingRepositoryInterface::class => \Payment\Repositories\BillingRepository::class,
-        \FileManager\Repositories\FileManagerRepositoryInterface::class => \FileManager\Repositories\FileManagerRepository::class,
+        \Auth\Repositories\Interfaces\AuthLogRepositoryInterface::class => \Auth\Repositories\AuthLogRepository::class,
+        \Administration\Repositories\Interfaces\UserRepositoryInterface::class => \Administration\Repositories\UserRepository::class,
+        \Administration\Repositories\Interfaces\RoleRepositoryInterface::class => \Administration\Repositories\RoleRepository::class,
+        \Payment\Repositories\Interfaces\ServiceRepositoryInterface::class => \Payment\Repositories\ServiceRepository::class,
+        \Payment\Repositories\Interfaces\InvoiceRepositoryInterface::class => \Payment\Repositories\InvoiceRepository::class,
+        \Payment\Repositories\Interfaces\ProformaRepositoryInterface::class => \Payment\Repositories\ProformaRepository::class,
+        \Payment\Repositories\Interfaces\BillingRepositoryInterface::class => \Payment\Repositories\BillingRepository::class,
+        \FileManager\Repositories\Interfaces\FileManagerRepositoryInterface::class => \FileManager\Repositories\FileManagerRepository::class,
     ];
 }

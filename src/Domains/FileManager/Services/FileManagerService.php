@@ -6,7 +6,7 @@ use FileManager\Enums\EntityTypeEnum;
 use FileManager\Enums\StoragesEnum;
 use FileManager\Events\FileUploadEvent;
 use FileManager\Models\FileManagerPath;
-use FileManager\Repositories\FileManagerRepositoryInterface;
+use FileManager\Repositories\Interfaces\FileManagerRepositoryInterface;
 use FileManager\Services\Interfaces\FileManagerServiceInterface;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;

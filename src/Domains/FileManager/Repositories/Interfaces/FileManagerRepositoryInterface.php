@@ -1,6 +1,6 @@
 <?php
 
-namespace FileManager\Repositories;
+namespace FileManager\Repositories\Interfaces;
 
 use FileManager\Models\FileManagerPath;
 use FileManager\Models\FileManagerMeta;

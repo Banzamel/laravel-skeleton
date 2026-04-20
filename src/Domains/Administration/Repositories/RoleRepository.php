@@ -3,6 +3,7 @@
 namespace Administration\Repositories;
 
 use Administration\Dtos\RoleDto;
+use Administration\Repositories\Interfaces\RoleRepositoryInterface;
 use Spatie\Permission\Models\Role;
 use Illuminate\Database\Eloquent\Collection;
 

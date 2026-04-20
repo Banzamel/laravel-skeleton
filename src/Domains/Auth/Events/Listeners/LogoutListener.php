@@ -1,6 +1,6 @@
 <?php
 
-namespace Auth\Listeners;
+namespace Auth\Events\Listeners;
 
 class LogoutListener
 {

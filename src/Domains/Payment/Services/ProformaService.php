@@ -11,8 +11,8 @@ use Payment\Events\ProformaDeletedEvent;
 use Payment\Events\ProformaRestoredEvent;
 use Payment\Events\ProformaUpdatedEvent;
 use Payment\Models\Proforma;
-use Payment\Repositories\ProformaRepositoryInterface;
-use Payment\Repositories\ServiceRepositoryInterface;
+use Payment\Repositories\Interfaces\ProformaRepositoryInterface;
+use Payment\Repositories\Interfaces\ServiceRepositoryInterface;
 use Payment\Services\Interfaces\ProformaServiceInterface;
 
 readonly class ProformaService implements ProformaServiceInterface

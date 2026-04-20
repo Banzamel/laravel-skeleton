@@ -3,6 +3,7 @@
 namespace Payment\Repositories;
 
 use Payment\Models\Invoice;
+use Payment\Repositories\Interfaces\InvoiceRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class InvoiceRepository implements InvoiceRepositoryInterface

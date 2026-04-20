@@ -1,6 +1,6 @@
 <?php
 
-namespace Payment\Repositories;
+namespace Payment\Repositories\Interfaces;
 
 use Payment\Models\Billing;
 

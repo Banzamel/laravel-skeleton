@@ -3,6 +3,7 @@
 namespace Payment\Repositories;
 
 use Payment\Models\Billing;
+use Payment\Repositories\Interfaces\BillingRepositoryInterface;
 
 class BillingRepository implements BillingRepositoryInterface
 {

@@ -1,7 +1,8 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "version": "2.2.0",
+    "description": "Modular Laravel 12 multi-tenant SaaS API template with domain-based structure.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {

@@ -2,6 +2,7 @@
 
 namespace Administration\Repositories;
 
+use Administration\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Administration\Models\User;
 use Illuminate\Http\UploadedFile;

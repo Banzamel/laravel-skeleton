@@ -2,7 +2,7 @@
 
 namespace Administration\Services;
 
-use Auth\Repositories\AuthLogRepositoryInterface;
+use Auth\Repositories\Interfaces\AuthLogRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Administration\Services\Interfaces\UserActivityServiceInterface;
 

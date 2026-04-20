@@ -1,6 +1,6 @@
 <?php
 
-namespace Administration\Repositories;
+namespace Administration\Repositories\Interfaces;
 
 use Administration\Models\User;
 use Illuminate\Http\UploadedFile;
