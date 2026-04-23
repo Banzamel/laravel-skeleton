@@ -17,9 +17,9 @@ class BillingTest extends ApiTestCase
         $response->assertOk();
     }
 
-    public function test_teacher_cannot_get_billing(): void
+    public function test_user_cannot_get_billing(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->getJson('/api/management/billing');
 
@@ -64,9 +64,9 @@ class BillingTest extends ApiTestCase
         $response->assertOk();
     }
 
-    public function test_teacher_cannot_update_billing(): void
+    public function test_user_cannot_update_billing(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->putJson('/api/management/billing', [
             'tax_id' => 'PL0000000000',

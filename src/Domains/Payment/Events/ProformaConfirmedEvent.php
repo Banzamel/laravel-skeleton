@@ -30,7 +30,7 @@ class ProformaConfirmedEvent implements ShouldBroadcast
 
     public function broadcastAs(): string
     {
-        return 'manager.proforma';
+        return 'payment.proforma';
     }
 
     public function broadcastWith(): array

@@ -23,6 +23,6 @@ class UpdatePathRequest extends PathRequest
      */
     public function authorize(): bool
     {
-        return $this->user()->can('materials.update');
+        return $this->user()->can('files.update');
     }
 }

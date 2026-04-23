@@ -42,7 +42,7 @@ class BillingUpdatedEvent implements ShouldBroadcast
      */
     public function broadcastAs(): string
     {
-        return 'manager.billing';
+        return 'payment.billing';
     }
 
     /**

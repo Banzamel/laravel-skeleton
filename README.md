@@ -1,6 +1,6 @@
 # Laravel Vision
 
-**Version: 2.2.0**
+**Version: 2.3.0**
 
 Laravel Vision is a modular Laravel 12 API template built for multi-tenant SaaS projects. The repository is intentionally opinionated: every business area lives in its own domain, every new project should learn the structure from the 4 default domains already present in `src/Domains`, and every next domain should stay identical at the folder level.
 

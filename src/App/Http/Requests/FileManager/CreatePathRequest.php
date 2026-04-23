@@ -29,6 +29,6 @@ class CreatePathRequest extends PathRequest
      */
     public function authorize(): bool
     {
-        return $this->user()->can('materials.create');
+        return $this->user()->can('files.create');
     }
 }

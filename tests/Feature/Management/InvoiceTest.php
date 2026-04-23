@@ -43,13 +43,13 @@ class InvoiceTest extends ApiTestCase
             ->assertJsonStructure(['current_page', 'data']);
     }
 
-    public function test_teacher_cannot_list_invoices(): void
+    public function test_user_can_list_invoices(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->getJson('/api/management/invoices');
 
-        $response->assertForbidden();
+        $response->assertOk();
     }
 
     // ── SHOW ──

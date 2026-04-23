@@ -42,14 +42,14 @@ class UserTest extends ApiTestCase
     {
         $this->actingAsAdmin();
 
-        $response = $this->getJson('/api/administration/users?role=Administrator');
+        $response = $this->getJson('/api/administration/users?role=admin');
 
         $response->assertOk();
     }
 
-    public function test_teacher_cannot_list_users(): void
+    public function test_user_cannot_list_users(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->getJson('/api/administration/users');
 
@@ -95,7 +95,7 @@ class UserTest extends ApiTestCase
             'name' => 'New Test User',
             'email' => 'newuser@example.com',
             'password' => 'password123',
-            'role_name' => 'Teacher',
+            'role_name' => 'manager',
             'is_active' => true,
         ]);
 
@@ -112,7 +112,7 @@ class UserTest extends ApiTestCase
             'name' => 'Duplicate',
             'email' => 'admin@example.com',
             'password' => 'password123',
-            'role_name' => 'Teacher',
+            'role_name' => 'manager',
         ]);
 
         $response->assertStatus(422)
@@ -144,15 +144,15 @@ class UserTest extends ApiTestCase
             ->assertJsonValidationErrors(['role_name']);
     }
 
-    public function test_teacher_cannot_create_user(): void
+    public function test_user_cannot_create_user(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->postJson('/api/administration/users', [
             'name' => 'Test',
             'email' => 'test@example.com',
             'password' => 'password123',
-            'role_name' => 'Teacher',
+            'role_name' => 'manager',
         ]);
 
         $response->assertForbidden();
@@ -164,12 +164,12 @@ class UserTest extends ApiTestCase
     {
         $this->actingAsAdmin();
 
-        $response = $this->putJson("/api/administration/users/{$this->teacher->id}", [
-            'name' => 'Updated Teacher Name',
+        $response = $this->putJson("/api/administration/users/{$this->manager->id}", [
+            'name' => 'Updated Manager Name',
         ]);
 
         $response->assertOk()
-            ->assertJsonPath('name', 'Updated Teacher Name');
+            ->assertJsonPath('name', 'Updated Manager Name');
     }
 
     // ── DELETE ──
@@ -183,7 +183,7 @@ class UserTest extends ApiTestCase
             'name' => 'Deletable User',
             'email' => 'deletable@example.com',
             'password' => 'password123',
-            'role_name' => 'Teacher',
+            'role_name' => 'manager',
         ]);
 
         $userId = $created->json('id');

@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "Modular Laravel 12 multi-tenant SaaS API template with domain-based structure.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",

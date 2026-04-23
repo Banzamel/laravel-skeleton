@@ -19,9 +19,9 @@ class FileManagerTest extends ApiTestCase
         $response->assertOk();
     }
 
-    public function test_teacher_can_list_files(): void
+    public function test_user_can_list_files(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->getJson('/api/files');
 
@@ -76,9 +76,9 @@ class FileManagerTest extends ApiTestCase
             ->assertJsonValidationErrors(['name']);
     }
 
-    public function test_teacher_cannot_create_directory(): void
+    public function test_user_cannot_create_directory(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->postJson('/api/files/directory', [
             'name' => 'Should Fail',
@@ -170,14 +170,14 @@ class FileManagerTest extends ApiTestCase
         $response->assertNoContent();
     }
 
-    public function test_teacher_cannot_delete_item(): void
+    public function test_user_cannot_delete_item(): void
     {
         $this->actingAsAdmin();
         $dir = $this->postJson('/api/files/directory', [
             'name' => 'Protected',
         ]);
 
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->deleteJson("/api/files/{$dir->json('id')}");
 

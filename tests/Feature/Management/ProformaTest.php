@@ -52,13 +52,13 @@ class ProformaTest extends ApiTestCase
         $response->assertOk();
     }
 
-    public function test_teacher_cannot_list_proformas(): void
+    public function test_user_can_list_proformas(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->getJson('/api/management/proformas');
 
-        $response->assertForbidden();
+        $response->assertOk();
     }
 
     // ── CREATE ──

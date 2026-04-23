@@ -12,55 +12,62 @@ class UsersCompanySeeder extends Seeder
 {
     public function run(): void
     {
-        // Reset Spatie permission cache
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        // Test company
         $company = Company::firstOrCreate(
-            ['slug' => 'acme-corp'],
+            ['slug' => 'default-company'],
             [
-                'name' => 'Acme Corporation',
-                'email' => 'contact@acme.com',
-                'phone' => '+48123456789',
+                'name' => 'Default Company',
+                'email' => 'contact@example.com',
+                'phone' => '+48000000000',
                 'city' => 'Warsaw',
                 'country' => 'PL',
                 'is_active' => true,
             ]
         );
 
-        // Set active team (company) for Spatie
         setPermissionsTeamId($company->id);
 
-        // Create default roles for the company
         $this->createDefaultRoles($company);
 
-        // Admin user
         $admin = User::firstOrCreate(
             ['email' => 'admin@example.com'],
             [
                 'company_id' => $company->id,
-                'name' => 'Admin User',
+                'name' => 'Admin',
                 'password' => 'password',
-                'role' => 'Administrator',
+                'role' => 'admin',
                 'is_active' => true,
                 'email_verified_at' => now(),
             ]
         );
-        $admin->assignRole('Administrator');
+        $admin->assignRole('admin');
 
-        // Teacher user
-        $lector = User::firstOrCreate(
+        $manager = User::firstOrCreate(
+            ['email' => 'manager@example.com'],
+            [
+                'company_id' => $company->id,
+                'name' => 'Manager',
+                'password' => 'password',
+                'role' => 'manager',
+                'is_active' => true,
+                'email_verified_at' => now(),
+            ]
+        );
+        $manager->assignRole('manager');
+
+        $user = User::firstOrCreate(
             ['email' => 'user@example.com'],
             [
                 'company_id' => $company->id,
-                'name' => 'Test Teacher',
+                'name' => 'User',
                 'password' => 'password',
-                'role' => 'Teacher',
+                'role' => 'user',
                 'is_active' => true,
                 'email_verified_at' => now(),
             ]
         );
-        $lector->assignRole('Teacher');
+        $user->assignRole('user');
     }
 
     private function createDefaultRoles(Company $company): void
@@ -68,36 +75,35 @@ class UsersCompanySeeder extends Seeder
         $modules = Config::get('permission.modules', []);
         $allPermissionNames = collect($modules)->flatten()->toArray();
 
-        // Role: Administrator (all permissions)
         $adminRole = Role::firstOrCreate([
-            'name' => 'Administrator',
+            'name' => 'admin',
             'guard_name' => 'api',
             'company_id' => $company->id,
         ]);
         $adminRole->syncPermissions($allPermissionNames);
 
-        // Role: Teacher
-        $lektorRole = Role::firstOrCreate([
-            'name' => 'Teacher',
+        $managerRole = Role::firstOrCreate([
+            'name' => 'manager',
             'guard_name' => 'api',
             'company_id' => $company->id,
         ]);
-        $lektorRole->syncPermissions([
-            'courses.view',
-            'calendar.view', 'calendar.create', 'calendar.update',
-            'materials.view',
+        $managerRole->syncPermissions([
+            'users.view',
+            'services.view', 'services.create', 'services.update',
+            'payments.view', 'payments.create', 'payments.update',
+            'files.view', 'files.create', 'files.update',
+            'settings.view',
         ]);
 
-        // Role: Accountant
-        $accountantRole = Role::firstOrCreate([
-            'name' => 'Accountant',
+        $userRole = Role::firstOrCreate([
+            'name' => 'user',
             'guard_name' => 'api',
             'company_id' => $company->id,
         ]);
-        $accountantRole->syncPermissions([
-            'users.view',
-            'payments.view', 'payments.create', 'payments.update',
+        $userRole->syncPermissions([
+            'services.view',
+            'payments.view',
+            'files.view',
         ]);
     }
 }
-

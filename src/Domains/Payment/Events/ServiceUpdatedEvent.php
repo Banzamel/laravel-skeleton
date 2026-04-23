@@ -42,7 +42,7 @@ class ServiceUpdatedEvent implements ShouldBroadcast
      */
     public function broadcastAs(): string
     {
-        return 'manager.service';
+        return 'payment.service';
     }
 
     /**

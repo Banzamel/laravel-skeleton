@@ -18,7 +18,7 @@ Content-Type: application/json
 {
   "name": "Premium Package",
   "limit": 20,
-  "description": "20 lessons per month with materials",
+  "description": "Premium service description",
   "price": 299.99
 }
 

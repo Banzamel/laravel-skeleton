@@ -38,7 +38,7 @@ class LoginTest extends ApiTestCase
             ]);
     }
 
-    public function test_teacher_can_login(): void
+    public function test_user_can_login(): void
     {
         $response = $this->postJson('/oauth/login', [
             'email' => 'user@example.com',
@@ -99,7 +99,7 @@ class LoginTest extends ApiTestCase
         $response->assertOk();
         $user = $response->json('user');
 
-        $this->assertContains('Administrator', $user['roles']);
+        $this->assertContains('admin', $user['roles']);
         $this->assertNotEmpty($user['permissions']);
     }
 }

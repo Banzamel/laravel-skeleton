@@ -15,9 +15,9 @@ class PermissionTest extends ApiTestCase
         $response->assertOk();
     }
 
-    public function test_teacher_cannot_list_permissions(): void
+    public function test_user_cannot_list_permissions(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->getJson('/api/administration/permissions');
 

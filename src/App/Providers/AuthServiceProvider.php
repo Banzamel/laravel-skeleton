@@ -10,7 +10,7 @@ class AuthServiceProvider extends \Illuminate\Foundation\Support\Providers\AuthS
 
     public function boot(): void
     {
-        // Ensure consistent morph type for User across Auth and Secretariat domains
+        // Ensure consistent morph type for User across Auth and Administration domains
         \Illuminate\Database\Eloquent\Relations\Relation::enforceMorphMap([
             'user' => \Auth\Models\User::class,
         ]);

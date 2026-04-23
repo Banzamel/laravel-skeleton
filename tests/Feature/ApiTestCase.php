@@ -16,7 +16,8 @@ abstract class ApiTestCase extends TestCase
     use RefreshDatabase;
 
     protected User $admin;
-    protected User $teacher;
+    protected User $manager;
+    protected User $user;
     protected Company $company;
 
     protected function setUp(): void
@@ -26,14 +27,15 @@ abstract class ApiTestCase extends TestCase
         $this->seed(RoleAndPermissionsSeeder::class);
         $this->seed(UsersCompanySeeder::class);
 
-        $this->company = Company::where('slug', 'acme-corp')->first();
+        $this->company = Company::where('slug', 'default-company')->first();
         DB::table('sec_companies')
             ->where('id', $this->company->id)
             ->update(['expired_at' => now()->addYear()]);
         $this->company->refresh();
 
         $this->admin = User::where('email', 'admin@example.com')->first();
-        $this->teacher = User::where('email', 'user@example.com')->first();
+        $this->manager = User::where('email', 'manager@example.com')->first();
+        $this->user = User::where('email', 'user@example.com')->first();
     }
 
     protected function actingAsAdmin(): static
@@ -43,15 +45,16 @@ abstract class ApiTestCase extends TestCase
         return $this;
     }
 
-    protected function actingAsTeacher(): static
+    protected function actingAsManager(): static
     {
-        Passport::actingAs($this->teacher, ['api']);
-        setPermissionsTeamId($this->teacher->company_id);
+        Passport::actingAs($this->manager, ['api']);
+        setPermissionsTeamId($this->manager->company_id);
         return $this;
     }
 
-    protected function actingAsUser(User $user): static
+    protected function actingAsUser(?User $user = null): static
     {
+        $user ??= $this->user;
         Passport::actingAs($user, ['api']);
         setPermissionsTeamId($user->company_id);
         return $this;

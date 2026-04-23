@@ -42,7 +42,7 @@ class InvoiceUpdatedEvent implements ShouldBroadcast
      */
     public function broadcastAs(): string
     {
-        return 'manager.invoice';
+        return 'payment.invoice';
     }
 
     /**

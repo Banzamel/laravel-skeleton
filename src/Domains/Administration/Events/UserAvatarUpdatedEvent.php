@@ -42,7 +42,7 @@ class UserAvatarUpdatedEvent implements ShouldBroadcast
      */
     public function broadcastAs(): string
     {
-        return 'secretariat.user';
+        return 'administration.user';
     }
 
     /**

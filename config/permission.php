@@ -216,17 +216,11 @@ return [
             'permissions.view',
             'permissions.manage',
         ],
-        'courses' => [
-            'courses.view',
-            'courses.create',
-            'courses.update',
-            'courses.delete',
-        ],
-        'calendar' => [
-            'calendar.view',
-            'calendar.create',
-            'calendar.update',
-            'calendar.delete',
+        'services' => [
+            'services.view',
+            'services.create',
+            'services.update',
+            'services.delete',
         ],
         'payments' => [
             'payments.view',
@@ -234,27 +228,15 @@ return [
             'payments.update',
             'payments.delete',
         ],
-        'materials' => [
-            'materials.view',
-            'materials.create',
-            'materials.update',
-            'materials.delete',
+        'files' => [
+            'files.view',
+            'files.create',
+            'files.update',
+            'files.delete',
         ],
         'settings' => [
             'settings.view',
             'settings.manage',
-        ],
-        'clients' => [
-            'clients.view',
-            'clients.create',
-            'clients.update',
-            'clients.delete',
-        ],
-        'services' => [
-            'services.view',
-            'services.create',
-            'services.update',
-            'services.delete',
         ],
     ],
 ];

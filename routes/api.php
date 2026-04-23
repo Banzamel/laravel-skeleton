@@ -43,15 +43,15 @@ Route::middleware(['auth:api', 'scope:api', 'teams.permission'])->group(function
 
         // File Manager
         Route::prefix('files')->group(function () {
-            Route::middleware('permission:materials.view')->group(function () {
+            Route::middleware('permission:files.view')->group(function () {
                 Route::get('/', \App\Http\Controllers\FileManager\GetFileController::class)->name('files.index');
                 Route::get('/{pathId}', \App\Http\Controllers\FileManager\GetFileController::class)->name('files.show');
                 Route::get('/{pathId}/download', \App\Http\Controllers\FileManager\DownloadFileController::class)->name('files.download');
             });
-            Route::post('/directory', \App\Http\Controllers\FileManager\CreateDirectoryController::class)->middleware('permission:materials.create')->name('files.directory.store');
-            Route::post('/upload', \App\Http\Controllers\FileManager\UploadFileController::class)->middleware('permission:materials.create')->name('files.upload');
-            Route::put('/{pathId}', \App\Http\Controllers\FileManager\UpdateItemController::class)->middleware('permission:materials.update')->name('files.update');
-            Route::delete('/{pathId}', \App\Http\Controllers\FileManager\DeleteItemController::class)->middleware('permission:materials.delete')->name('files.destroy');
+            Route::post('/directory', \App\Http\Controllers\FileManager\CreateDirectoryController::class)->middleware('permission:files.create')->name('files.directory.store');
+            Route::post('/upload', \App\Http\Controllers\FileManager\UploadFileController::class)->middleware('permission:files.create')->name('files.upload');
+            Route::put('/{pathId}', \App\Http\Controllers\FileManager\UpdateItemController::class)->middleware('permission:files.update')->name('files.update');
+            Route::delete('/{pathId}', \App\Http\Controllers\FileManager\DeleteItemController::class)->middleware('permission:files.delete')->name('files.destroy');
         });
 
         // Management

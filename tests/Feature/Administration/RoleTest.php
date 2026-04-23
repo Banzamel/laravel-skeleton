@@ -17,9 +17,9 @@ class RoleTest extends ApiTestCase
         $response->assertOk();
     }
 
-    public function test_teacher_cannot_list_roles(): void
+    public function test_user_cannot_list_roles(): void
     {
-        $this->actingAsTeacher();
+        $this->actingAsUser();
 
         $response = $this->getJson('/api/administration/roles');
 
@@ -34,7 +34,7 @@ class RoleTest extends ApiTestCase
 
         $response = $this->postJson('/api/administration/roles', [
             'name' => 'Receptionist',
-            'permissions' => ['users.view', 'clients.view'],
+            'permissions' => ['users.view', 'files.view'],
         ]);
 
         $response->assertCreated()

@@ -43,7 +43,7 @@ class RoleUpdatedEvent implements ShouldBroadcast
      */
     public function broadcastAs(): string
     {
-        return 'secretariat.role';
+        return 'administration.role';
     }
 
     /**

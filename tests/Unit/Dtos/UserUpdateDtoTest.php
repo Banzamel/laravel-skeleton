@@ -32,7 +32,7 @@ class UserUpdateDtoTest extends TestCase
 
     public function test_to_array_with_all_fields(): void
     {
-        $dto = new UserUpdateDto('John', 'john@test.com', 'newpass', 'Admin', false);
+        $dto = new UserUpdateDto('John', 'john@test.com', 'newpass', 'admin', false);
 
         $this->assertSame([
             'name' => 'John',
@@ -44,10 +44,10 @@ class UserUpdateDtoTest extends TestCase
 
     public function test_to_array_excludes_role_name(): void
     {
-        $dto = new UserUpdateDto(roleName: 'Teacher');
+        $dto = new UserUpdateDto(roleName: 'manager');
 
         $this->assertEmpty($dto->toArray());
-        $this->assertSame('Teacher', $dto->getRoleName());
+        $this->assertSame('manager', $dto->getRoleName());
     }
 
     public function test_empty_dto_returns_empty_array(): void

@@ -20,8 +20,8 @@ Authorization: Bearer {{access_token}}
 Content-Type: application/json
 
 {
-  "name": "Recepcjonista",
-  "permissions": ["users.view", "clients.view", "calendar.view", "calendar.create"]
+  "name": "Receptionist",
+  "permissions": ["users.view", "services.view", "files.view"]
 }
 
 ### Update Role
@@ -30,8 +30,8 @@ Authorization: Bearer {{access_token}}
 Content-Type: application/json
 
 {
-  "name": "Lektor",
-  "permissions": ["courses.view", "calendar.view", "calendar.create", "calendar.update", "materials.view"]
+  "name": "Editor",
+  "permissions": ["services.view", "payments.view", "files.view", "files.create", "files.update"]
 }
 
 ### Delete Role
